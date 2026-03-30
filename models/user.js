@@ -9,16 +9,9 @@ const userSchema=new mongoose.Schema({
         type:String,
         required:true
     },
-    phone:{
-        type:Number,
-        required:true
-    },
-    purpose:{
-        type:String
-    },
-    time:{
-        type:Date,
-        default:Date.now()
+    invite:{
+        type:Boolean,
+        default:false
     }
 })
 

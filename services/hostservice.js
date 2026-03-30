@@ -1,5 +1,6 @@
 import visitorModel from "../models/visitRequest.js";
 import userModel from '../models/user.js';
+import authModel from '../models/auth.js';
 
 export const getAns=async(userId)=>{
     try {
@@ -12,7 +13,7 @@ export const getAns=async(userId)=>{
 
 export const acceptAns=async(userId)=>{
     try {
-        const isuser=await authModel.findbyId(userId);
+        const isuser=await authModel.findById(userId);
         if(!isuser)return ({message:"user does not exist"});
         await userModel.updateOne({id:userId},{invite:true});
     } catch (error) {
@@ -20,5 +21,14 @@ export const acceptAns=async(userId)=>{
     }
 }
 
+export const declineAns=async(userId)=>{
+    try {
+        const isuser1=await authModel.findById(userId);
+        if(!isuser1)return ({message:"user does not exist"});
+        await userModel.updateOne({id:userId},{invite:false});
+    } catch (error) {
+        throw error;
+    }
+}
 
 
