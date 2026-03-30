@@ -16,7 +16,6 @@ app.use("/auth",authRoute);
 app.use("/visitor",visitorRoute);
 app.use('/host',hostRoute);
 
-
 app.listen(PORT,(req,res)=>{
     console.log(`Backend Running on server ${PORT}`)
 })
