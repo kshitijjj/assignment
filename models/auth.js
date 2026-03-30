@@ -1,6 +1,10 @@
 import mongoose from "mongoose";
 
 const authSchema=new mongoose.Schema({
+    name:{
+        type:String,
+        required:true,
+    },
     email:{
         type:String,
         required:true
@@ -13,6 +17,10 @@ const authSchema=new mongoose.Schema({
         type:String,
         enum:['Host','Visitor'],
         required:true
+    },
+    invite:{
+        type:Boolean,
+        default:false
     }
 })
 
